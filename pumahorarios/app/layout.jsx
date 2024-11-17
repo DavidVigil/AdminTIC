@@ -1,3 +1,7 @@
+import AppBarGlobal from "@/components/appbar-global";
+import Footer from "@/components/footer";
+import { theme } from "@/styles/global-theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import localFont from "next/font/local";
 //import "./globals.css";
 
@@ -23,7 +27,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {/* To add the bar navigator */}
+          <AppBarGlobal/>
+          {children}
+          <Footer/>
+        </ThemeProvider>
       </body>
     </html>
   );
